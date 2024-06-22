@@ -59,9 +59,11 @@ class Stu_achievementUIForm(QMainWindow, Ui_Form):
         cursor.execute(sql)
         data = cursor.fetchall()
         row = len(data)
+        file = open('avg_score.txt', 'w', encoding = 'utf-8')
         for i in range(0, row):
             print("课程号：" + str(data[i][0]) + " 课程名称：" + data[i][1] + " 平均成绩：" + str(data[i][2]))
-
+            file.write("课程号：" + str(data[i][0]) + " 课程名称：" + data[i][1] + " 平均成绩：" + str(data[i][2]) + '\n')
+        file.close()
 
     def display(self, pages, sign):
         if sign == -2000000:
