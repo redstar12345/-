@@ -1,0 +1,74 @@
+√ Update_Department:
+修改Department中的did时，pro中的did也要进行修改（过程已实现）
+dname随意修改
+
+√ Delete_Department:
+删除Department中的某一项时，如果在pro中存储了相关信息，那么不允许删除（数据库外键约束）
+
+√ Update_pro:
+修改pro中的pid时，class中的pid也要进行修改（过程已实现）
+pname随意修改（前端已实现）
+did不允许修改（人为规定）
+
+√ Delete_pro:
+删除pro中的某一项时，如果在class中存储了相关信息，那么不允许删除（数据库外键约束）
+
+√ Update_class:
+修改class中的cid时，student中的cid也要进行修改（过程已实现）
+cname随意修改（前端已实现）
+num不允许修改（前端已实现）
+修改后的pid必须存在于pro中，否则不允许修改（数据库外键约束）
+
+√ Delete_class:
+删除class中的某一项时，如果在student中存储了相关信息，那么不允许删除（数据库外键约束）
+
+√ Update_student:
+修改student中的sid时，rewards_punishment,achievement中的sid也要修改（过程已实现）
+sname,sex,birth,entry随意修改（前端已实现）
+修改后的cid必须存在于class中，否则不允许修改（数据库外键约束）
+
+√ Delete_student:
+删除student中的某一项时，如果在achievement,rewards_punishment中存储了相关信息，那么不允许删除（数据库外键约束）
+对应的class中的num减1（触发器已实现）
+
+√ Update_rewards_punishment:
+rpid,rpname,rpperiod随意修改（前端已实现）
+修改rewards_punishment中的sid时，修改后的sid必须存在于student中，否则不允许修改（数据库外键约束）
+
+√ Delete_rewards_punishment:
+直接删除，不需要过程
+
+√ Update_achievement:
+sid,csid不允许修改（人为规定）
+score随意修改，不需要过程
+
+√ Delete_achievement:
+直接删除，不需要过程
+
+√ Update_course:
+修改course中的csid时，achievement中的csid也需要进行修改（过程已实现）
+csname,cstime,credit随意修改（前端已实现）
+
+√ Delete_course:
+删除course中的某一项时，如果在achievement,rewards_punishment中存储了相关信息，那么不允许删除（数据库外键约束）
+
+√ Insert_Department:
+直接插入
+
+√ Insert_pro:
+pro中的did必须存在于Department中，否则不允许插入
+
+√ Insert_class:
+class中的pid必须存在于pro中，否则不允许插入
+
+√ Insert_student:
+student中的cid必须存在于class中，否则不允许插入；插入后对应class中的num加一（触发器已实现）
+
+√ Insert_course:
+直接插入
+
+√ Insert_rewards_punishment:
+rp中的sid必须存在于student中，否则不允许插入
+
+√ Insert_achievement:
+achievement中的sid必须存在于student中，csid必须存在于course中，score符合[0,100]，否则不允许插入
